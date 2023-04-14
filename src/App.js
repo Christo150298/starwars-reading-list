@@ -1,15 +1,15 @@
-import injectContext from './store/appContext';
+import InjectContext from './store/appContext';
 import router from './routes/routes';
 import { RouterProvider } from 'react-router-dom';
 
 
 function App() {
   return (
-    <injectContext>
+    <InjectContext>
       <RouterProvider 
         router={router}>
       </RouterProvider>      
-    </injectContext>
+    </InjectContext>
   );
 }
 

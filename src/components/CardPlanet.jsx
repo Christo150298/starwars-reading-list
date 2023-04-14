@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import "../styles/components/card.css";
 import tatooine from "../img/tatooine.jpg"
 
 const CardPlanet = (props) => {

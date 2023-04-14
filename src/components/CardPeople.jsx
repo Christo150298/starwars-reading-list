@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "../styles/components/card.css"
 
 const CardPeople = (props) => {
 

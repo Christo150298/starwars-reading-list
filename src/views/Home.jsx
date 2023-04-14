@@ -2,9 +2,9 @@ import React from "react";
 import { useContext } from "react";
 import { Context } from "../store/appContext";
 
-import Characters from "../component/Characters.jsx";
-import Planets from "../component/Planets.jsx";
-import Vehicles from "../component/Vehicles.jsx";
+import Characters from "../components/Characters.jsx";
+import Planets from "../components/Planets.jsx";
+import Vehicles from "../components/Vehicles.jsx";
 
 const Home = () => {
 

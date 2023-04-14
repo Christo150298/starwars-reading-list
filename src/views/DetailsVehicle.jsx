@@ -26,8 +26,8 @@ const DetailsVehicles = () => {
   
                 <div id="textoDescripcion">
                   <p className="card-text" >
-                  Star Wars, space opera film series, created by George Lucas. It became one of the most successful and influential franchises in motion picture history. A space opera set "a long time ago in a galaxy far, far away..."
-                  the film centres on Luke Skywalker, a young man who finds himself embroiled in an interplanetary war between an authoritarian empire and rebel forces. Skywalker and the opportunistic smuggler Han Solo are tasked
+                    Star Wars, space opera film series, created by George Lucas. It became one of the most successful and influential franchises in motion picture history. A space opera set "a long time ago in a galaxy far, far away..."
+                    the film centres on Luke Skywalker, a young man who finds himself embroiled in an interplanetary war between an authoritarian empire and rebel forces. Skywalker and the opportunistic smuggler Han Solo are tasked
                     with saving Princess Leia from captivity on a massive space station commanded by the menacing Darth Vader, whose deep mechanically augmented voice became instantly iconic. At the core of the film and the series it
                     initiated are the Jedi Knights —a group of either benevolent or malevolent warriors who harness and manipulate the Force, an all-pervasive spiritual essence that holds in balance the forces of good and evil— 
                     and Skywalker's quest to join their ranks.
