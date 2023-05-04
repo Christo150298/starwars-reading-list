@@ -1,76 +1,70 @@
 import React from "react";
-import { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { Context } from "../store/appContext";
+import useStore from "../store/appContext";
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
-const DetailsVehicles = () => {
+const DetailsVehicle = () => {
+    const { vehicle } = useParams()
+    const imgSrc = `https://starwars-visualguide.com/assets/img/vehicles/${vehicle}.jpg `
 
-    const { store, actions } = useContext(Context);
-  
-    const params = useParams();
-  
-  
-    return (
-      <div className="container">
-        <div className="card mb-3 bg-secondary text-white w-100">
-          <div className="row g-0">
-            <div className="col-md-5">
-              <img id="imagenDetalladaVehicles" src={"https://starwars-visualguide.com/assets/img/vehicles/"+store.vehiclesProperties[params.id].uid+".jpg"} className="img-fluid rounded-start" alt="..."/>
-            </div>
-  
-            <div className="col-md-7 text-center">
-  
-              <div className="card-body h-100">
-  
-                <h5 className="card-title fs-1 text-info text-decoration-underline">{store.vehiclesProperties[params.id].properties.name}</h5>
-  
-                <div id="textoDescripcion">
-                  <p className="card-text" >
-                    Star Wars, space opera film series, created by George Lucas. It became one of the most successful and influential franchises in motion picture history. A space opera set "a long time ago in a galaxy far, far away..."
-                    the film centres on Luke Skywalker, a young man who finds himself embroiled in an interplanetary war between an authoritarian empire and rebel forces. Skywalker and the opportunistic smuggler Han Solo are tasked
-                    with saving Princess Leia from captivity on a massive space station commanded by the menacing Darth Vader, whose deep mechanically augmented voice became instantly iconic. At the core of the film and the series it
-                    initiated are the Jedi Knights —a group of either benevolent or malevolent warriors who harness and manipulate the Force, an all-pervasive spiritual essence that holds in balance the forces of good and evil— 
-                    and Skywalker's quest to join their ranks.
-                  </p>
+    const {store} = useStore();
+    const {vehiclesDetailedList} = store;
+
+    const [vehicleData] = vehiclesDetailedList ? vehiclesDetailedList.filter(item => item.result.uid === vehicle) : null;
+
+    return(
+    <>
+        <div className="detailsContainer">
+            <img src={imgSrc} alt={`character ${vehicleData?.result.properties.name}`} />
+            <div className="d-flex flex-column">
+                <h1>{vehicleData?.result.properties.name}</h1>
+                <h3>{vehicleData?.result.description}</h3>
+                <div className="specificDetContainer">
+                    <div >
+                        <b> Vehicle class  </b>
+                        <div> {vehicleData?.result.properties.vehicle_class} </div>
+                    </div> 
+                    <div >
+                        <b> Manufacturer  </b>
+                        <div> {vehicleData?.result.properties.manufacturer} </div>
+                    </div> 
+                    <div >
+                        <b> Cost (credits)  </b>
+                        <div> {vehicleData?.result.properties.cost_in_credits} </div>
+                    </div> 
+                     
+                    <div >
+                        <b> Crew seats  </b>
+                        <div> {vehicleData?.result.properties.crew} </div>
+                    </div> 
+                    <div >
+                        <b> Passenger seats </b>
+                        <div> {vehicleData?.result.properties.passengers} </div>
+                    </div> 
+
+                    <div >
+                        <b> Cargo capacity  </b>
+                        <div> {vehicleData?.result.properties.cargo_capacity} </div>
+                    </div> 
                 </div>
-  
-              </div>
+                <div className="graphicsContainer">
+                    <div>
+                    <span>Length (m) </span>
+                         <ProgressBar striped variant="success" now={
+                             vehicleData?.result.properties.length/210*100
+                        } label={`${vehicleData?.result.properties.length}`} />
+                    </div>
+                    <div >
+                    <span>Max speed (ms)</span>
+                    <ProgressBar striped variant="danger" now={
+                            vehicleData?.result.properties.max_atmosphering_speed/1250*100
+                        } label={`${vehicleData?.result.properties.max_atmosphering_speed}`} />
+                    </div> 
+                </div>
             </div>
-          </div>
         </div>
-  
-        <div className="h4 pb-2 mb-4 border-bottom border-danger border-3 mt-5"></div>
-  
-        <div id="textoDetalles" className="container mt-5 text-center">
-          <div className="row g-0">
-            <div className="col-md-2">
-              <strong>Name</strong>
-              <p>{store.vehiclesProperties[params.id].properties.name}</p>
-            </div>
-            <div className="col-md-2">
-              <strong>Cargo Capacity</strong>
-              <p>{store.vehiclesProperties[params.id].properties.cargo_capacity}</p>
-            </div>
-            <div className="col-md-2">
-              <strong>Length</strong>
-              <p>{store.vehiclesProperties[params.id].properties.length} m</p>
-            </div>
-            <div className="col-md-2">
-              <strong>Crew</strong>
-              <p>{store.vehiclesProperties[params.id].properties.crew}</p>
-            </div>
-            <div className="col-md-2">
-              <strong>Speed</strong>
-              <p>{store.vehiclesProperties[params.id].properties.max_atmosphering_speed} km/h</p>
-            </div>
-            <div className="col-md-2">
-              <strong>Cost</strong>
-              <p>{store.vehiclesProperties[params.id].properties.cost_in_credits} credits</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-  
-  export default DetailsVehicles;
+</>    
+  )
+}
+
+export default DetailsVehicle;

@@ -1,16 +1,13 @@
-import InjectContext from './store/appContext';
 import router from './routes/routes';
 import { RouterProvider } from 'react-router-dom';
+import { StoreProvider } from './store/appContext';
 
-
-function App() {
+const App = () => {
   return (
-    <InjectContext>
-      <RouterProvider 
-        router={router}>
-      </RouterProvider>      
-    </InjectContext>
+    <StoreProvider>
+      <RouterProvider router={router}></RouterProvider>  
+    </StoreProvider> 
   );
-}
+};
 
 export default App;

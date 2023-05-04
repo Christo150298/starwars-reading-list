@@ -1,49 +1,29 @@
 import React from "react";
+import Dropdown from 'react-bootstrap/Dropdown';
+import useStore from "../store/appContext";
 import { Link } from "react-router-dom";
-import { useContext, useMemo } from "react";
-import { Context } from "../store/appContext";
+import Trash from "react-useanimations/lib/trash2";
+import UseAnimations from "react-useanimations";
 
+const FavoritesItems = () => {
 
-const FavoritesItems = (props) => {
+  const {store, actions} = useStore();
+  const {favoritesList} = store;
+  const {handleDelFavorite} = actions;
+  
+    return (
+    <Dropdown>
+      <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+        Favorites {favoritesList.length ? favoritesList.length :null }
+      </Dropdown.Toggle>
 
-    const  {store, actions} = useContext(Context);
-
-    const memo = useMemo(() => {
-        
-        let url = "";
-
-        switch (props.description) {
-          case "A person within the Star Wars universe":
-            url = "/detailsPeople/";
-            break;
-          case "A planet.":
-            url = "/detailsPlanets/";
-            break;
-          case "A vehicle":
-            url = "/detailsVehicles/";
-            break;
-        }
-
-        return(url);
-    },[props.description]);
-
-
-
-  return (
-    <li className="dropdown-item d-flex justify-content-between">
-      <span>
-        <Link to={memo + props.id}> {props.name} </Link>
-      </span>
-
-      <button
-        type="button"
-        onClick={() => actions.deleteFavorites(props.index)}
-        className="botonesDelete btn btn-outline-danger ms-2"
-      >
-        <img className="iconoDelete" src={laserX} />
-      </button>
-    </li>
-  );
-};
+      <Dropdown.Menu variant="dark">
+        {favoritesList.length 
+        ? favoritesList.map( item => <Dropdown.ItemText key={item.name}><div className="d-flex flex-row justify-content-between"><Link to={item.url}>  {item.name}</Link><UseAnimations animation={Trash}  onClick={()=>handleDelFavorite(item.name)} /></div></Dropdown.ItemText> )
+        : <Dropdown.Item >Nothing added yet.</Dropdown.Item> }
+      </Dropdown.Menu>
+    </Dropdown>
+    )
+}
 
 export default FavoritesItems;
