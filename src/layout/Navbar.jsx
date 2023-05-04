@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "../styles/layout/navbar.css"
 import FavoritesItems from "../components/FavoritesItems";
 import Navbar from 'react-bootstrap/Navbar';
@@ -12,9 +12,6 @@ const NavBar = () => {
             <Container>
                 <Navbar.Brand><Link to="/"><img src={"/media/Logo.png"}/></Link></Navbar.Brand>
                 <Navbar.Collapse className="justify-content-end">
-                    <Navbar.Text className="mx-5">
-                        <NavLink to="/">Home</NavLink>  
-                    </Navbar.Text>
                     <Navbar.Text>
                         <FavoritesItems />
                     </Navbar.Text>

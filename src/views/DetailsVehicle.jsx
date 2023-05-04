@@ -1,9 +1,12 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useStore from "../store/appContext";
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import { Button } from "react-bootstrap";
 
 const DetailsVehicle = () => {
+
+    const navigate = useNavigate()
     const { vehicle } = useParams()
     const imgSrc = `https://starwars-visualguide.com/assets/img/vehicles/${vehicle}.jpg `
 
@@ -60,6 +63,9 @@ const DetailsVehicle = () => {
                             vehicleData?.result.properties.max_atmosphering_speed/1250*100
                         } label={`${vehicleData?.result.properties.max_atmosphering_speed}`} />
                     </div> 
+                </div>
+                <div className="volver-button">
+                    <Button type="button" className="btn-volver" variant="danger" onClick={() => navigate("/")}>Volver</Button>
                 </div>
             </div>
         </div>

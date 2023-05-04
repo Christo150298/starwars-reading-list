@@ -1,12 +1,13 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useStore from "../store/appContext";
 import "../styles/views/details.css"
 import Button from "react-bootstrap/esm/Button";
 import ProgressBar from "react-bootstrap/esm/ProgressBar";
 
 const DetailsPlanet = () =>{
-    
+
+    const navigate = useNavigate()
     const { planet } = useParams()
     const imgSrc = `https://starwars-visualguide.com/assets/img/planets/${planet}.jpg `
 
@@ -48,29 +49,26 @@ const DetailsPlanet = () =>{
                     <div >
                         <b> Terrain  </b>
                         <div> {planetData?.result.properties.terrain} </div>
-                    </div> 
-                    <div >
-                        <b> Water on surface  </b>
-                        <div> {planetData?.result.properties.surface_water === 1 ? <Button variant="success">✓</Button> : <Button variant="danger">𐄂</Button> } </div>
-                    </div> 
-                </div>
-
-                <div className="graphicsContainer">
-                        <div >
-
-                        <span>Diameter</span>
-                            <ProgressBar striped variant="success" now={
-                                (planetData?.result.properties.diameter/118000)*100
-                            } label={`${planetData?.result.properties.diameter}`} />
-                        </div>
-                        <div >
-                            <span>Population</span>
-                            <ProgressBar striped variant="danger" now={
-                                    (planetData?.result.properties.population/1000000000)*100
-                                } label={`${planetData?.result.properties.population}`} />
-                        </div>
                     </div>
-             </div>
+                </div>
+                <div className="graphicsContainer">
+                    <div>
+                    <span>Diameter</span>
+                        <ProgressBar striped variant="success" now={
+                            (planetData?.result.properties.diameter/118000)*100
+                        } label={`${planetData?.result.properties.diameter}`} />
+                    </div>
+                    <div >
+                        <span>Population</span>
+                        <ProgressBar striped variant="danger" now={
+                                (planetData?.result.properties.population/1000000000)*100
+                            } label={`${planetData?.result.properties.population}`} />
+                    </div>
+                </div>
+                <div className="volver-button">
+                    <Button type="button" className="btn-volver" variant="danger" onClick={() => navigate("/")}>Volver</Button>
+                </div>
+            </div>
          </div>
     </>        
     )

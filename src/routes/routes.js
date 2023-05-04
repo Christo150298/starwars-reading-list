@@ -1,6 +1,5 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-
 import Home from '../views/Home.jsx';
 import Layout from '../layout/Layout.jsx';
 import DetailsPeople from '../views/DetailsPeople.jsx';

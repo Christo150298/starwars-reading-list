@@ -3,7 +3,7 @@
     margin-inline: auto;
     padding: 3vh;
     background-color: rgba(192, 192, 192, 0.63);
-    border-radius: 30px;
+    border-radius: 10px;
     display:flex;
     flex-direction: row;
     width: fit-content;
@@ -16,33 +16,29 @@
     max-width: 70v;
     padding: 0.5vh;
     background-color: rgba(192, 192, 192, 0.63);
-    border-radius: 30px;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
     text-align: center;
     justify-content: center;
-
 }
-
 
 .detailsContainer img{
     margin-right: 5vh;
-    border-radius: 20px;
+    border-radius: 10px;
     height: 100%;
     max-height: 15vw;
-    object-fit: cover;
-    
+    object-fit: cover; 
 }
 
 .specificDetContainer > div{
     margin-inline: 1vw;
 }
 
-
 .graphicsContainer{
     margin-top: 5vh;
     background-color: rgba(192, 192, 192, 0.63);
-    border-radius: 30px;
+    border-radius: 10px;
     padding: 0.5vh;
     padding-block:2vh;
     padding-inline:1vw;
@@ -55,12 +51,10 @@
     width: 90%;
 }
 
-
 .graphicsContainer > div {
     display:flex;
     font-size: 0.7vw;
     align-items: center;
-    
 }
 
 .graphicsContainer > div > span {
@@ -70,4 +64,15 @@
     margin-right: 1vw;
     font-weight: 800;
     justify-content: end;
+}
+
+.volver-button{
+    display: flex;
+    justify-content: end;
+    margin-top: 1rem;
+}
+
+button.btn-volver {
+    background-color: red;
+    width: 7rem;
 }
