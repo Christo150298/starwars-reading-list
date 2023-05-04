@@ -16,7 +16,6 @@ const CharacterCard = ({name,id}) => {
 
     const [charData] = charDetailedList ? charDetailedList.filter(item => item.result.uid === id) : null;
 
-
     const favorite = favoritesList.filter((item) => item.name === name).length ? true : false
 
     return(
@@ -27,12 +26,12 @@ const CharacterCard = ({name,id}) => {
             <Card.Text><b>Gender</b> : {charData ? charData.result.properties.gender : <Spinner animation="border" variant="danger" />}</Card.Text>
             <Card.Text><b>Eye color</b> : {charData ? charData.result.properties.eye_color : <Spinner animation="border" variant="warning" />}</Card.Text>
             <Card.Text><b>Hair color</b> : {charData ? charData.result.properties.hair_color : <Spinner animation="border" variant="primary" />}</Card.Text>
-            <div className="d-flex d-row justify-content-between">
-                <Link className="btn btn-primary" to={`/chardetails/${id}`} >Learn more..</Link>
+            <div className="d-flex justify-content-between">
+                <Link className="btn btn-primary" to={`/chardetails/${id}`} >Leer Más</Link>
                 <Button  variant={favorite ? "danger":"secondary" }  onClick={() => !favorite ? handleNewFavorite(name,id,"chardetails") : handleDelFavorite(name)} >&#10084;</Button>
             </div>
         </Card.Body>
-    </Card>
+        </Card>
     );
 };
 
