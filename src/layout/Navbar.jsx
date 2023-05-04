@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 const NavBar = () => {
 
     return (
-        <Navbar bg="dark" variant="dark">
+        <Navbar className="navbar-style">
             <Container>
                 <Navbar.Brand><Link to="/"><img src={"/media/Logo.png"}/></Link></Navbar.Brand>
                 <Navbar.Collapse className="justify-content-end">

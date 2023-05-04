@@ -4,7 +4,6 @@ import UseAnimations from "react-useanimations";
 import arrowRight from "react-useanimations/lib/arrowRightCircle";
 import arrowLeft from "react-useanimations/lib/arrowLeftCircle";
 
-
 const ControlsContainer = ({list, handleChange}) => {
 
     return(
@@ -17,7 +16,7 @@ const ControlsContainer = ({list, handleChange}) => {
             :null
             }
         </div>
-    )
-}
+    );
+};
 
 export default ControlsContainer;

@@ -15,7 +15,6 @@ export const StoreProvider = ({children}) => {
     const [planetsDetailedList, setPlanetsDetailedList] = useState([]);
     const [favoritesList, setFavoritesList] = useState([]);
 
-
     useEffect( ()=>{
         let tempFavList = localStorage.getItem("favoritesList")
         if(tempFavList == null) return
@@ -45,7 +44,6 @@ export const StoreProvider = ({children}) => {
         .catch( err => console.log(err) )    
     },[charListUrl]);
 
-
     useEffect(()=>{
         let tempVehicleList = localStorage.getItem("vehicles")
         if (vehicles.length === 0 && tempVehicleList != null) {
@@ -64,7 +62,6 @@ export const StoreProvider = ({children}) => {
         .catch( err => console.log(err) )
 
     },[vehicleListUrl]);
-
 
     useEffect(()=>{
         let tempPlanetlist = localStorage.getItem("planets")
@@ -103,14 +100,14 @@ export const StoreProvider = ({children}) => {
             const newItem = {name, url};
             let newList = [...prev, newItem]
             return newList
-        })
-    }
+        });
+    };
 
     const handleDelFavorite = (name) => {
         setFavoritesList(prev => {
             return prev.filter( item => item.name !== name)
-        })
-    }
+        });
+    };
 
     let store = {characters ,vehicles ,planets ,charDetailedList, vehiclesDetailedList, planetsDetailedList ,favoritesList }
     let actions = {handleCharUrl, handlePlanetUrl, handleVehicleUrl, handleNewFavorite, handleDelFavorite}
@@ -123,6 +120,6 @@ export const StoreProvider = ({children}) => {
 
 const useStore = () => {
     return useContext(Store);
-}
+};
 
 export default useStore;

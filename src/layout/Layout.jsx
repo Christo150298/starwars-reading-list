@@ -6,10 +6,10 @@ const Layout = ()=> {
 
     return(
         <>
-        <NavBar/>
-        <Outlet/>
+            <NavBar/>
+            <Outlet/>
         </>
-    )
-}
+    );
+};
 
 export default Layout;

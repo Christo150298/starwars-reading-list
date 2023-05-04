@@ -28,3 +28,6 @@ ul{
 .dropdown-item-text path{
     stroke:rgb(241, 241, 241);
 }
+.navbar-style{
+    background-color: #2E494F;
+}

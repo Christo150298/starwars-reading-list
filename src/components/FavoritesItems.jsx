@@ -12,18 +12,17 @@ const FavoritesItems = () => {
   const {handleDelFavorite} = actions;
   
     return (
-    <Dropdown>
-      <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-        Favorites {favoritesList.length ? favoritesList.length :null }
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu variant="dark">
-        {favoritesList.length 
-        ? favoritesList.map( item => <Dropdown.ItemText key={item.name}><div className="d-flex flex-row justify-content-between"><Link to={item.url}>  {item.name}</Link><UseAnimations animation={Trash}  onClick={()=>handleDelFavorite(item.name)} /></div></Dropdown.ItemText> )
-        : <Dropdown.Item >Nothing added yet.</Dropdown.Item> }
-      </Dropdown.Menu>
-    </Dropdown>
-    )
-}
+      <Dropdown>
+        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+          Favoritos {favoritesList.length ? favoritesList.length :null }
+        </Dropdown.Toggle>
+        <Dropdown.Menu variant="dark">
+          {favoritesList.length 
+          ? favoritesList.map( item => <Dropdown.ItemText key={item.name}><div className="d-flex flex-row justify-content-between"><Link to={item.url}>  {item.name}</Link><UseAnimations animation={Trash}  onClick={()=>handleDelFavorite(item.name)} /></div></Dropdown.ItemText> )
+          : <Dropdown.Item >Vacío</Dropdown.Item> }
+        </Dropdown.Menu>
+      </Dropdown>
+    );
+};
 
 export default FavoritesItems;

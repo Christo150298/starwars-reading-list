@@ -4,9 +4,8 @@
     overflow-y: hidden;
     overflow-x: scroll;
     margin-inline: 2vw;
-    background-color: rgba(192, 192, 192, 0.473);
+    background-color: #2E494F;
     padding: 20px;
-        
 }
 
 .headerCards{
@@ -17,13 +16,13 @@
     margin-inline:2vw;
     justify-content: space-between; 
     margin-top:8vh;
-    background-color: rgba(192, 192, 192, 0.473);
+    background-color: #2E494F;
 }
 
 .headerCards button{
     margin-inline: 0.3vw;
     text-align: center;
-
+    margin-left: 10px;
 }
 
 .card img{
@@ -35,7 +34,7 @@
 }
 
 .headerCards button path{
-    stroke: #acacac
+    stroke: #862525
 }
 
 .navbar img{
